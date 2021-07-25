@@ -65,7 +65,7 @@ public class UcenterMemberController {
         return memberInfoVo;
     }
 
-    @ApiOperation(value = "统计每次注册人数")
+    @ApiOperation(value = "统计每填注册人数")
     @GetMapping("/getMemberRegisterStatistics/{date}")
     public Integer getMemberRegisterStatistics(@PathVariable String date){
         //根据日期查询当日注册人数

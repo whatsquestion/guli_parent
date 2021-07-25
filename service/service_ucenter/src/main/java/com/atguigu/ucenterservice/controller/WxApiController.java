@@ -1,6 +1,7 @@
 package com.atguigu.ucenterservice.controller;
 
 import com.atguigu.commonutils.JwtUtils;
+import com.atguigu.commonutils.R;
 import com.atguigu.servicebase.exception.GuliException;
 import com.atguigu.ucenterservice.entity.Member;
 import com.atguigu.ucenterservice.service.UcenterMemberService;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -95,8 +98,9 @@ public class WxApiController {
     }
 
     @ApiOperation(value = "生成微信扫描二维码")
+    @ResponseBody
     @GetMapping("/login")
-    public String genQrConnect(){
+    public R genQrConnect(){
 
         // 微信开放平台授权baseUrl
         String baseUrl= "https://open.weixin.qq.com/connect/qrconnect" +
@@ -120,7 +124,8 @@ public class WxApiController {
                 ConstantPropertiesUtil.WX_OPEN_APP_ID, redirectUrl);
 
 
-        return "redirect:"+qrcodeUrl;
+//        return "redirect:"+qrcodeUrl;
+        return R.ok().data("qrcodeUrl", qrcodeUrl);
     }
 
 }

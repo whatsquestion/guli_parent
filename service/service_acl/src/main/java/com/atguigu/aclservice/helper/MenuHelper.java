@@ -15,7 +15,7 @@ import java.util.List;
  * @author qy
  * @since 2019-11-11
  */
-public class MemuHelper {
+public class MenuHelper {
 
     /**
      * 构建菜单
@@ -23,7 +23,7 @@ public class MemuHelper {
      * @return
      */
     public static List<JSONObject> bulid(List<Permission> treeNodes) {
-        List<JSONObject> meuns = new ArrayList<>();
+        List<JSONObject> menus = new ArrayList<>();
         if(treeNodes.size() == 1) {
             Permission topNode = treeNodes.get(0);
             //左侧一级菜单
@@ -74,9 +74,9 @@ public class MemuHelper {
                     }
                 }
                 oneMeun.put("children", children);
-                meuns.add(oneMeun);
+                menus.add(oneMeun);
             }
         }
-        return meuns;
+        return menus;
     }
 }

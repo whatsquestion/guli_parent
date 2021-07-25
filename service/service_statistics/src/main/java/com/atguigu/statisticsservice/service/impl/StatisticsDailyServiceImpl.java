@@ -38,6 +38,7 @@ public class StatisticsDailyServiceImpl extends ServiceImpl<StatisticsDailyMappe
         this.remove(wrapper);
 
         //获取统计数据
+        //统计当天注册人数
         Integer registerCounts = uCenterClient.getMemberRegisterStatistics(date);
         //TODO  统计当天登录人数
         Integer loginNum = RandomUtils.nextInt(100, 200);
